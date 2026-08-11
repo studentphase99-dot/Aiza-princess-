@@ -3,69 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Aiza Princess ❤️</title>
+<title>For Aiza 💗</title>
+
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-  font-family:Arial, sans-serif; overflow:hidden;
-  background:linear-gradient(135deg,#16001f,#3b073d,#12001a); color:white;
+* {
+  box-sizing: border-box;
 }
-.card{
-  width:min(90%,520px); padding:38px 28px; text-align:center; border-radius:28px;
-  background:rgba(255,255,255,.10); backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.2); box-shadow:0 20px 70px rgba(0,0,0,.45);
-  animation:appear 1.2s ease;
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9fc9, #ffd6e8, #ffb6d9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
-h1{font-size:42px;margin:0 0 8px}
-h2{font-weight:400;margin:0 0 25px;color:#ffd6f5}
-p{font-size:18px;line-height:1.7;color:#fff5fc}
-.heart{font-size:55px;animation:pulse 1.5s infinite}
-button{
-  margin-top:15px;padding:13px 25px;border:0;border-radius:30px;
-  background:#ff5bbd;color:white;font-size:16px;font-weight:bold;cursor:pointer;
+
+.card {
+  width: 90%;
+  max-width: 390px;
+  padding: 35px 25px;
+  text-align: center;
+  background: rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 30px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 40px rgba(180, 40, 100, 0.25);
 }
-#secret{display:none;margin-top:22px;font-size:18px;color:#ffe1f6}
-.float{position:absolute;bottom:-50px;font-size:25px;animation:float 7s linear infinite;opacity:.7}
-@keyframes appear{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
-@keyframes pulse{50%{transform:scale(1.15)}}
-@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+
+.heart {
+  font-size: 75px;
+  animation: beat 1.3s infinite;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+h1 {
+  color: #b3125a;
+  font-size: 34px;
+  margin: 10px 0;
+}
+
+.subtitle {
+  color: #7d3155;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+button {
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  background: #e91e63;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(233,30,99,.35);
+  transition: .2s;
+}
+
+button:active {
+  transform: scale(.92);
+}
+
+.message {
+  display: none;
+  margin-top: 25px;
+  color: #6d2148;
+  font-size: 17px;
+  line-height: 1.7;
+  animation: appear .8s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating {
+  position: absolute;
+  bottom: -30px;
+  animation: floatUp 5s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <div class="card">
-  <div class="heart">❤️</div>
-  <h1>Aiza Princess</h1>
-  <h2>A little message from my heart</h2>
-  <p>
-    I don't know if words can ever explain how special you are to me.
-    You have a beautiful place in my heart, and every moment I think about you
-    feels a little more meaningful.
-  </p>
-  <p>
-    I just want you to know one thing:
-    <b>you are truly precious to me.</b> ❤️
-  </p>
-  <button onclick="document.getElementById('secret').style.display='block'">
-    Open My Heart 💌
-  </button>
-  <div id="secret">
-    No matter what happens, I will always be grateful that I met you. ❤️<br><br>
-    — For Aiza Princess
+
+  <div class="heart">💗</div>
+
+  <h1>For Aiza</h1>
+
+  <div class="subtitle">
+    There is something I want you to know...
   </div>
+
+  <button onclick="openHeart()">
+    Open My Heart 💕
+  </button>
+
+  <div class="message" id="message">
+    Aiza, you are truly special to me. 💗<br><br>
+    I may not always know the perfect words,
+    but I just want you to know that you mean
+    a lot to me.<br><br>
+    Thank you for being someone who can make
+    ordinary moments feel special. 🌸<br><br>
+    <b>Some people simply become a beautiful
+    part of our thoughts. You are one of them. 💕</b>
+  </div>
+
 </div>
 
 <script>
-const symbols=["❤️","💕","✨","💗"];
-for(let i=0;i<18;i++){
-  const s=document.createElement("div");
-  s.className="float";
-  s.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-  s.style.left=Math.random()*100+"vw";
-  s.style.animationDelay=Math.random()*7+"s";
-  s.style.animationDuration=(5+Math.random()*5)+"s";
-  document.body.appendChild(s);
+function openHeart() {
+  document.getElementById("message").style.display = "block";
+
+  for (let i = 0; i < 25; i++) {
+    createHeart();
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "floating";
+  heart.innerHTML = Math.random() > 0.5 ? "💗" : "💕";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (18 + Math.random() * 25) + "px";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
 }
 </script>
+
 </body>
 </html>
